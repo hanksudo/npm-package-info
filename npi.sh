@@ -17,4 +17,5 @@ fi
 
 URL=`echo $1/master/package.json | sed 's/github\.com/raw.githubusercontent.com/g'`
 
-http $URL | jq '.dependencies | keys | .[]' | xargs -I {} npm info --json {} | jq -r '.name + " - " + .description'
+http $URL | jq '.dependencies | keys | .[]' | xargs -I {} npm view --json {} | \
+    jq -r '"- [" + .name + "](" + .homepage + ")" + "\n" + .description + "\n"'
