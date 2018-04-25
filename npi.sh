@@ -1,6 +1,6 @@
 #!/bin/sh
 # Usage: ./npi.sh https://github.com/FreeCodeCamp/FreeCodeCamp
-# dependencies: httpie, jq
+# dependencies: jq
 
 
 usage ()
@@ -17,5 +17,5 @@ fi
 
 URL=`echo $1/master/package.json | sed 's/github\.com/raw.githubusercontent.com/g'`
 
-http $URL | jq '.dependencies | keys | .[]' | xargs -I {} npm view --json {} | \
+curl $URL | jq '.dependencies | keys | .[]' | xargs -I {} npm view --json {} | \
     jq -r '"- [" + .name + "](" + .homepage + ")" + "\n" + .description + "\n"'
