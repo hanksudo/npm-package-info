@@ -2,28 +2,26 @@
 
 Know project's npm packages easily.
 
-## Shell Script version
 
-### Dependencies
 
-- httpie (https://github.com/jkbrzt/httpie)
+## Dependencies
+
 - jq (https://stedolan.github.io/jq/)
 
-### Installation
+## Installation
 
 ```bash
-brew install httpie jq
-curl https://raw.githubusercontent.com/hanksudo/npm-package-info/master/npi.sh > ~/bin/npi
-chmod a+x ~/bin/npi
+brew install jq
+curl https://raw.githubusercontent.com/hanksudo/npm-package-info/master/npi.sh > ~/bin/npi && chmod +x ~/bin/npi
 ```
 
-### Usage
+## Usage
 
 ```bash
-npi https://github.com/FreeCodeCamp/FreeCodeCamp
+$ npi https://github.com/FreeCodeCamp/FreeCodeCamp
 ```
 
-### Result
+## Result
 
 ```
 - [accepts](https://github.com/jshttp/accepts#readme)
